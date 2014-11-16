@@ -116,6 +116,7 @@
 						<ul>
 							<li>Docker Server: The daemon that manages containers and images</li>
 							<li>Docker CLI: The docker command</li>
+							<li>Docker Hub: The docker image hosting service</li>
 							<li>Image: A read only file system</li>
 							<li>Base Image: An image without a parent</li>
 							<li>container: A read/write file system above a Image</li>
@@ -176,13 +177,12 @@ docker run ubuntu /bin/echo "Hello Docker"
             <ul>
               <li class="fragment">
                 The run command
-                <pre class="fragment"><code data-trim contenteditable>
+                <pre><code data-trim contenteditable>
 docker run
                 </code></pre>
-
               </li>
-              <li class="fragment">
                 The Image To Run
+              <li class="fragment">
                 <pre ><code data-trim contenteditable>
 ubuntu
                 </code></pre>
@@ -412,8 +412,9 @@ docker push -d yourname/handbuiltnginx
 
 					<section>
 						<h2>build your image with a docker file</h2>
+            <h3><a href="https://docs.docker.com/reference/builder/">DockerFile info</a></h3>
 					<pre><code data-trim contenteditable>
-#create a docker file
+#create a Dockerfile
 docker build -t yourname/nginxfromfile the/location/of the docker file
 					</code></pre>
           </section>
