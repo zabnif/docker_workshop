@@ -19,7 +19,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/conf.d", "/var/www"]
 
 WORKDIR /etc/nginx
 
-COPY sitefile.site /etc/nginx/sites-enabled/
+COPY Sitefile /etc/nginx/sites-enabled/
 
 COPY css/       /var/www/css
 COPY js/        /var/www/js
