@@ -1,54 +1,54 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'css/print/pdf.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Docker</h1>
-					<h3>Not The Pants</h3>
-					<p>
-						<small>Created by <a href="http://duncan.fedde.us">Duncan Fedde</a> / <a href="http://twitter.com/dfedde">@dfedde</a></small>
-					</p>
-					<aside class="notes">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Docker</h1>
+          <h3>Not The Pants</h3>
+          <p>
+          <small>Created by <a href="http://duncan.fedde.us">Duncan Fedde</a> / <a href="http://twitter.com/dfedde">@dfedde</a></small>
+          </p>
+          <aside class="notes">
             Goals for this presentation:
             <ul>
               <li>make a image by hand</li>
@@ -59,121 +59,107 @@
               <li>handle sharing data between containers</li>
               <li>provide a sample way to deploy docker on a server</li>
             </ul>
-					  start out by asking about background in linux source control and if admin or developer
-					</aside>
-				</section>
-
-				<section>
-          <h2>My info</h2>
-				</section>
-
-				<section>
-          <h2>What will we be doing Today?</h2>
-          <ul>
-            <li class="fragment">using linux</li>
-            <li class="fragment">using docker</li>
-            <li class="fragment">using dockerhub</li>
-            <li class="fragment">using github</li>
-          </ul>
-				</section>
+            start out by asking about background in linux source control and if admin or developer
+          </aside>
+        </section>
 
         <section>
-          <h2>But most of all</h2>
-				</section>
+          <h2>My info</h2>
+        </section>
+
+        <section>
+          <h2>What will we be doing Today?</h2>
+          <ul>
+            <li>using docker</li>
+            <li>using github</li>
+
+          </ul>
+        </section>
 
         <section>
           <h2>We will be setting up this</h2>
-				</section>
+          <p>
+          <small>Cue live demo</small>
+          </p>
+        </section>
 
         <section>
-					<p>
-						<small>Cue live demo</small>
-					</p>
-				</section>
-
-				<section>
           <h2>Yes... but how?</h2>
-				</section>
-
-        <section>
-          <h2>well, like this</h2>
-					<pre><code data-trim contenteditable>
+          <pre class="fragment"><code data-trim contenteditable>
 10 I'll run a lab
 20 You will pair up and try the lab on your own
 30 we'll come back and discus the lab
 40 GOTO 10
-					</code></pre>
-				</section>
-
+          </code></pre>
+        </section>
+        <section>
+          <h2>But First... What is docker?</h2>
+        </section>
 
         <section>
           <h2>But First... What is docker?</h2>
-				</section>
-
-        <section>
-          <h2>But First... What is docker?</h2>
-				</section>
+        </section>
 
         <section>
           <h2>Docker is...</h2>
-						<ul>
-							<li class="fragment">Portable</li>
-							<li class="fragment">lightweight</li>
-							<li class="fragment">Application Containers</li>
-						</ul>
-					<aside class="notes">
-					  make sure to ask about each thing
-					</aside>
-				</section>
+          <ul>
+            <li class="fragment">Portable</li>
+            <li class="fragment">lightweight</li>
+            <li class="fragment">Application Containers</li>
+          </ul>
+          <aside class="notes">
+            make sure to ask about each thing
+          </aside>
+        </section>
 
         <section>
           <h2>Docker is not...</h2>
-						<ul>
-							<li class="fragment">a Virtual Machine</li>
-							<li class="fragment">an Automated Deployment System</li>
-						</ul>
-					<aside class="notes">
-					  make sure to ask about each thing
-					</aside>
-				</section>
+          <ul>
+            <li class="fragment">a Virtual Machine</li>
+            <li class="fragment">an Automated Deployment System</li>
+          </ul>
+          <aside class="notes">
+            make sure to ask about each thing
+          </aside>
+        </section>
 
         <section>
           <h2>Docker Vocab</h2>
-						<ul>
-							<li>Docker Server: The daemon that manages containers and images</li>
-							<li>Docker CLI: The docker command</li>
-							<li>Docker Hub: The docker image hosting service</li>
-							<li>Image: A read only file system</li>
-							<li>Base Image: An image without a parent</li>
-							<li>container: An instance of a Image</li>
-						</ul>
-					<aside class="notes">
-					  make sure to ask about each thing
-					</aside>
-				</section>
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Lab 01</h2>
-					  <h3>install docker</h3>
-					</section>
+          <ul>
+            <li>Docker Server: The daemon that manages containers and images</li>
+            <li>Docker CLI: The docker command</li>
+            <li>Docker Hub: The docker image hosting service</li>
+            <li>Image: A read only file system</li>
+            <li>Base Image: An image without a parent</li>
+            <li>container: An instance of a Image</li>
+          </ul>
+          <aside class="notes">
+            make sure to ask about each thing
+          </aside>
+        </section>
+        <!-- Example of nested vertical slides -->
+        <section>
+          <section>
+            <h2>Lab 01</h2>
+            <h3>install docker</h3>
+          </section>
 
-					<section>
-						<h2>Ubuntu 14.04/Debian</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>Ubuntu 14.04/Debian</h2>
+            <pre><code data-trim contenteditable>
 sudo app-get install docker.io
 sudo usermod -a -G docker ${whoami}
 # you may need to re-login
 docker pull ubuntu
-					</code></pre>
-						<h2>Arch</h2>
-					<pre><code data-trim contenteditable>
+            </code></pre>
+            <h2>Arch</h2>
+            <pre><code data-trim contenteditable>
 sudo pacman -S install docker
 sudo usermod -a -G docker ${whoami}
 # you may need to re-login
 docker pull ubuntu
-					</code></pre>
-						<h2>Windows/OSX</h2>
+            </code></pre>
+            <h2>Windows/OSX</h2>
             <p>
             potentially use <a href="https://github.com/boot2docker/boot2docker">boot2docker</a> but for this class I have a Virtual Box appliance for any one who wants it
             </p>
@@ -182,21 +168,21 @@ docker pull ubuntu
             look <a href="http://docs.docker.com/installation/">here</a> for install instructions or use the aforementioned Virtual Box appliance
             </p>
 
-					</section>
-				</section>
+          </section>
+        </section>
 
         <section>
-					<section>
-						<h2>Lab 02</h2>
-					  <h3>Hello Docker</h3>
-					</section>
+          <section>
+            <h2>Lab 02</h2>
+            <h3>Hello Docker</h3>
+          </section>
 
-					<section>
-						<h2>Run echo in a container</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>Run echo in a container</h2>
+            <pre><code data-trim contenteditable>
 docker run ubuntu /bin/echo "Hello Docker"
-					</code></pre>
-					</section>
+            </code></pre>
+          </section>
 
           <section>
             <h2>what did we just do?</h2>
@@ -207,7 +193,7 @@ docker run ubuntu /bin/echo "Hello Docker"
 docker run
                 </code></pre>
               </li>
-                The Image To Run
+              The Image To Run
               <li class="fragment">
                 <pre ><code data-trim contenteditable>
 ubuntu
@@ -235,14 +221,14 @@ docker ps -l
         </section>
 
         <section>
-					<section>
-						<h2>Lab 03</h2>
-					  <h3>Adding a Web Server</h3>
-					</section>
+          <section>
+            <h2>Lab 03</h2>
+            <h3>Adding a Web Server</h3>
+          </section>
 
-					<section>
-						<h2>Run an Interactive container</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>Run an Interactive container</h2>
+            <pre><code data-trim contenteditable>
 docker run -p 80:80 -i -t ubuntu /bin/bash
 # in the container
 apt-get update
@@ -250,49 +236,49 @@ apt-get install nginx
 service nginx start
 # go look at your fancy new web site in a browser at localhost:80
 # don't exit the container
-					</code></pre>
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-            <li class="fragment">
-              forward the containers port 80 to the hosts port 80
-              <pre class="fragment"><code data-trim contenteditable>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                forward the containers port 80 to the hosts port 80
+                <pre class="fragment"><code data-trim contenteditable>
 -p 80:80
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              keep STDIN open (interactive mode)
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                keep STDIN open (interactive mode)
+                <pre class="fragment"><code data-trim contenteditable>
 -i
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              allocate a pseudo TTY
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                allocate a pseudo TTY
+                <pre class="fragment"><code data-trim contenteditable>
 -t
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              run bash in the container
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                run bash in the container
+                <pre class="fragment"><code data-trim contenteditable>
 /bin/bash
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              install and start nginx
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                install and start nginx
+                <pre class="fragment"><code data-trim contenteditable>
 apt-get update
 apt-get install nginx
 service nginx start
-              </code></pre>
+                </code></pre>
 
-            </li>
-          </ul>
+              </li>
+            </ul>
           </section>
           <section>
             <h2>well that works but do I need to to that every time?</h2>
@@ -300,14 +286,14 @@ service nginx start
         </section>
 
         <section>
-					<section>
-						<h2>Lab 04</h2>
-					  <h3>the one where you make a new image</h3>
-					</section>
+          <section>
+            <h2>Lab 04</h2>
+            <h3>the one where you make a new image</h3>
+          </section>
 
-					<section>
-						<h2>commit your container</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>commit your container</h2>
+            <pre><code data-trim contenteditable>
 # in your container
 echo "daemon off;" >> /etc/nginx/nginx.conf
 exit
@@ -317,39 +303,39 @@ docker ps -l
 docker commit #{the_name_of_the_container} yourname/handbuiltnginx:v1
 docker run -d -P yourname/handbuiltnginx:v1 service nginx start
 docker ps -l
-					</code></pre>
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-            <li class="fragment">
-              name of the image
-              <pre class="fragment"><code data-trim contenteditable>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                name of the image
+                <pre class="fragment"><code data-trim contenteditable>
 yourname/handbuiltnginx:v1
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              bind all of the containers ports to a random high port on the host
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                bind all of the containers ports to a random high port on the host
+                <pre class="fragment"><code data-trim contenteditable>
 -P
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-             daemonize the container
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                daemonize the container
+                <pre class="fragment"><code data-trim contenteditable>
 -d
-              </code></pre>
+                </code></pre>
 
-            </li>
-            <li class="fragment">
-              start the nginx service
-              <pre class="fragment"><code data-trim contenteditable>
+              </li>
+              <li class="fragment">
+                start the nginx service
+                <pre class="fragment"><code data-trim contenteditable>
 service nginx start
-              </code></pre>
-            </li>
-          </ul>
+                </code></pre>
+              </li>
+            </ul>
           </section>
           <section>
             <h2>cool!</h2>
@@ -358,38 +344,38 @@ service nginx start
           </section>
         </section>
         <section>
-					<section>
-						<h2>Lab 04.5</h2>
-					  <h3>Stoping a container</h3>
-					</section>
+          <section>
+            <h2>Lab 04.5</h2>
+            <h3>Stoping a container</h3>
+          </section>
 
-					<section>
-						<h2>stop your container</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>stop your container</h2>
+            <pre><code data-trim contenteditable>
 docker ps -l
 #get the name
 docker stop $the_name_found
-					</code></pre>
-					<pre><code data-trim contenteditable>
+            </code></pre>
+            <pre><code data-trim contenteditable>
 docker stop `docker ps -lq`
-					</code></pre>
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
           </section>
         </section>
 
         <section>
-					<section>
-						<h2>Lab 05</h2>
-					  <h3>add this presentation to the container</h3>
-					</section>
+          <section>
+            <h2>Lab 05</h2>
+            <h3>add this presentation to the container</h3>
+          </section>
 
-					<section>
-						<h2>add these files to your container</h2>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>add these files to your container</h2>
+            <pre><code data-trim contenteditable>
 docker run -i -t -p 80:80 yourname/handbuiltnginx:v1 /bin/bash
 # in the container
 mkdir /var/www && cd /var/www
@@ -403,12 +389,12 @@ docker commit #{the_name_of_the_container} yourname/handbuiltnginx:v2
 docker run -d -P yourname/handbuiltnginx:v2 service nginx start
 #look at your new site in the browser
 docker ps -l
-					</code></pre>
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
           </section>
           <section>
             <h2>now how to share my cool new image</h2>
@@ -416,22 +402,22 @@ docker ps -l
         </section>
 
         <section>
-					<section>
-						<h2>Lab 06</h2>
-					  <h3>docker hub</h3>
-					</section>
+          <section>
+            <h2>Lab 06</h2>
+            <h3>docker hub</h3>
+          </section>
 
-					<section>
-						<h2>push your image to docker hub</h2>
+          <section>
+            <h2>push your image to docker hub</h2>
             <p>create a docker hub account</p>
-					<pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable>
 docker push -d yourname/handbuiltnginx
-					</code></pre>
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
           </section>
           <section>
             <h2>cool but there is a better way</h2>
@@ -439,45 +425,136 @@ docker push -d yourname/handbuiltnginx
         </section>
 
         <section>
-					<section>
-						<h2>Lab 07</h2>
-					  <h3>the docker file</h3>
-					</section>
+          <section>
+            <h2>Lab 07</h2>
+            <h3>the docker file</h3>
+          </section>
 
-					<section>
-						<h2>build your image with a docker file</h2>
-            <h3><a href="https://docs.docker.com/reference/builder/">DockerFile info</a></h3>
-					<pre><code data-trim contenteditable>
+          <section>
+            <h2>build your image with a docker file</h2>
+            <h3><a href="https://gist.github.com/6b834c64ecfdf9b3974e">Dockerfile</a></h3>
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+
+RUN \
+apt-get update && \
+apt-get install -y nginx && \
+rm -rf /var/lib/apt/lists/* && \
+echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+chown -R www-data:www-data /var/lib/nginx
+
+CMD ["nginx"]
+
+EXPOSE 80
+            </code></pre>
+            <pre><code data-trim contenteditable>
 # create a Dockerfile
-docker build -t yourname/nginxfromfile the/location/of/the/docker/file
-					</code></pre>
+docker build -t yourname/nginx:v3 the/location/of/the/docker/file
+docker run -p 80:80 -d yourname/nginx
+# go checkout your web site http://localhost
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                build the new image from ubuntu 14.10
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+            </code></pre>
+            </li>
+              <li class="fragment">
+                run these commands on the new container
+            <pre><code data-trim contenteditable>
+RUN \
+apt-get update && \
+apt-get install -y nginx && \
+rm -rf /var/lib/apt/lists/* && \
+echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+chown -R www-data:www-data /var/lib/nginx
+            </code></pre>
+            </li>
+              <li class="fragment">
+                run the nginx comand when you start the file
+            <pre><code data-trim contenteditable>
+CMD ["nginx"]
+            </code></pre>
+            </li>
+              <li class="fragment">
+                expose port 80 to the host(the host must still bind this to a port)
+            <pre><code data-trim contenteditable>
+EXPOSE 80
+            </code></pre>
+            </li>
+              <li class="fragment">
+                comand to build the image from the docker file
+            <pre><code data-trim contenteditable>
+docker build -t yourname/nginx:v3 the/location/of/the/docker/file
+            </code></pre>
+            </li>
+            </ul>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
-          </section>
-          <section>
-            <h2>now we can build a image on the fly but our application is tied up in our environment</h2>
+            <h2>now we can build a image on the fly but how do we get our data in there</h2>
           </section>
         </section>
 
         <section>
-					<section>
-						<h2>Lab 08</h2>
-					  <h3>using volumes</h3>
-					</section>
+          <section>
+            <h2>Lab 09</h2>
+            <h3>the copy and add</h3>
+          </section>
 
-					<section>
-						<h2>use a named volume</h2>
-					<pre><code data-trim contenteditable>
-docker run -d -P -v www:/var/www yourname/handbuiltnginx:v1 service nginx start
-					</code></pre>
+          <section>
+            <h2>the copy command</h2>
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+
+RUN \
+apt-get update && \
+apt-get install -y nginx && \
+rm -rf /var/lib/apt/lists/* && \
+echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+chown -R www-data:www-data /var/lib/nginx
+
+COPY Sitefile /etc/nginx/sites-enabled/
+COPY css/       /var/www/css
+COPY js/        /var/www/js
+COPY lib/       /var/www/lib
+COPY plugin/    /var/www/plugin
+COPY index.html /var/www/
+
+CMD ["nginx"]
+
+EXPOSE 80
+            </code></pre>
           </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
+          </section>
+          <section>
+            <h2>but this relies on every host having the same file structure</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Lab 08</h2>
+            <h3>using volumes</h3>
+          </section>
+
+          <section>
+            <h2>use a named volume</h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v $(pwd):/var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
           </section>
           <section>
             <h2>but this relies on every host having the same file structure</h2>
@@ -485,263 +562,137 @@ docker run -d -P -v www:/var/www yourname/handbuiltnginx:v1 service nginx start
         </section>
 
         <section>
-					<section>
-						<h2>Lab 09</h2>
-					  <h3>using unnamed volumes</h3>
-					</section>
-
-					<section>
-						<h2>use a named volume</h2>
-					<pre><code data-trim contenteditable>
-docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
-					</code></pre>
-          </section>
           <section>
-          <h2>what did we just do?</h2>
-          <ul>
-          </ul>
+            <h2>Lab 09</h2>
+            <h3>using unnamed volumes</h3>
+          </section>
+
+          <section>
+            <h2>use a unnamed volume</h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v /var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>but thats not all that </h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v /var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
           </section>
           <section>
             <h2>but this relays on every host having the same file structure</h2>
           </section>
         </section>
 
-<!--  -->
-<!-- 				<section id="transitions"> -->
-<!-- 					<h2>Transition Styles</h2> -->
-<!-- 					<p> -->
-<!-- 						You can select from different transitions, like: <br> -->
-<!-- 						<a href="?transition=cube#/transitions">Cube</a> &#45; -->
-<!-- 						<a href="?transition=page#/transitions">Page</a> &#45; -->
-<!-- 						<a href="?transition=concave#/transitions">Concave</a> &#45; -->
-<!-- 						<a href="?transition=zoom#/transitions">Zoom</a> &#45; -->
-<!-- 						<a href="?transition=linear#/transitions">Linear</a> &#45; -->
-<!-- 						<a href="?transition=fade#/transitions">Fade</a> &#45; -->
-<!-- 						<a href="?transition=none#/transitions">None</a> &#45; -->
-<!-- 						<a href="?#/transitions">Default</a> -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section id="themes"> -->
-<!-- 					<h2>Themes</h2> -->
-<!-- 					<p> -->
-<!-- 						Reveal.js comes with a few themes built in: <br> -->
-<!-- 						<a href="?#/themes">Default</a> &#45; -->
-<!-- 						<a href="?theme=sky#/themes">Sky</a> &#45; -->
-<!-- 						<a href="?theme=beige#/themes">Beige</a> &#45; -->
-<!-- 						<a href="?theme=simple#/themes">Simple</a> &#45; -->
-<!-- 						<a href="?theme=serif#/themes">Serif</a> &#45; -->
-<!-- 						<a href="?theme=night#/themes">Night</a> <br> -->
-<!-- 						<a href="?theme=moon#/themes">Moon</a> &#45; -->
-<!-- 						<a href="?theme=solarized#/themes">Solarized</a> -->
-<!-- 					</p> -->
-<!-- 					<p> -->
-<!-- 						<small> -->
-<!-- 							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&#38;lt;head&#38;gt;</code> using a <code>&#38;lt;link&#38;gt;</code>. -->
-<!-- 						</small> -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Global State</h2> -->
-<!-- 					<p> -->
-<!-- 						Set <code>data&#45;state="something"</code> on a slide and <code>"something"</code> -->
-<!-- 						will be added as a class to the document element when the slide is open. This lets you -->
-<!-- 						apply broader style changes, like switching the background. -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section data&#45;state="customevent"> -->
-<!-- 					<h2>Custom Events</h2> -->
-<!-- 					<p> -->
-<!-- 						Additionally custom events can be triggered on a per slide basis by binding to the <code>data&#45;state</code> name. -->
-<!-- 					</p> -->
-<!-- 					<pre><code data&#45;trim contenteditable style="font&#45;size: 18px; margin&#45;top: 20px;"> -->
-<!-- Reveal.addEventListener( 'customevent', function() { -->
-<!-- 	console.log( '"customevent" has fired' ); -->
-<!-- } ); -->
-<!-- 					</code></pre> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<section data&#45;background="#007777"> -->
-<!-- 						<h2>Slide Backgrounds</h2> -->
-<!-- 						<p> -->
-<!-- 							Set <code>data&#45;background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported. -->
-<!-- 						</p> -->
-<!-- 						<a href="#" class="image navigate&#45;down"> -->
-<!-- 							<img width="178" height="238" src="https://s3.amazonaws.com/hakim&#45;static/reveal&#45;js/arrow.png" alt="Down arrow"> -->
-<!-- 						</a> -->
-<!-- 					</section> -->
-<!-- 					<section data&#45;background="https://s3.amazonaws.com/hakim&#45;static/reveal&#45;js/arrow.png"> -->
-<!-- 						<h2>Image Backgrounds</h2> -->
-<!-- 						<pre><code>&#38;lt;section data&#45;background="image.png"&#38;gt;</code></pre> -->
-<!-- 					</section> -->
-<!-- 					<section data&#45;background="https://s3.amazonaws.com/hakim&#45;static/reveal&#45;js/arrow.png" data&#45;background&#45;repeat="repeat" data&#45;background&#45;size="100px"> -->
-<!-- 						<h2>Repeated Image Backgrounds</h2> -->
-<!-- 						<pre><code style="word&#45;wrap: break&#45;word;">&#38;lt;section data&#45;background="image.png" data&#45;background&#45;repeat="repeat" data&#45;background&#45;size="100px"&#38;gt;</code></pre> -->
-<!-- 					</section> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section data&#45;transition="linear" data&#45;background="#4d7e65" data&#45;background&#45;transition="slide"> -->
-<!-- 					<h2>Background Transitions</h2> -->
-<!-- 					<p> -->
-<!-- 						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade. -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section data&#45;transition="linear" data&#45;background="#8c4738" data&#45;background&#45;transition="slide"> -->
-<!-- 					<h2>Background Transition Override</h2> -->
-<!-- 					<p> -->
-<!-- 						You can override background transitions per slide by using <code>data&#45;background&#45;transition="slide"</code>. -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Clever Quotes</h2> -->
-<!-- 					<p> -->
-<!-- 						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our&#45;Favorite&#45;Technology&#45;Quotations"> -->
-<!-- 						&#38;ldquo;The nice thing about standards is that there are so many to choose from&#38;rdquo;</q> and block: -->
-<!-- 					</p> -->
-<!-- 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our&#45;Favorite&#45;Technology&#45;Quotations"> -->
-<!-- 						&#38;ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would -->
-<!-- 						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&#38;rdquo; -->
-<!-- 					</blockquote> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Pretty Code</h2> -->
-<!-- 					<pre><code data&#45;trim contenteditable> -->
-<!-- function linkify( selector ) { -->
-<!--   if( supports3DTransforms ) { -->
-<!--  -->
-<!--     var nodes = document.querySelectorAll( selector ); -->
-<!--  -->
-<!--     for( var i = 0, len = nodes.length; i &#38;lt; len; i++ ) { -->
-<!--       var node = nodes[i]; -->
-<!--  -->
-<!--       if( !node.className ) { -->
-<!--         node.className += ' roll'; -->
-<!--       } -->
-<!--     } -->
-<!--   } -->
-<!-- } -->
-<!-- 					</code></pre> -->
-<!-- 					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Intergalactic Interconnections</h2> -->
-<!-- 					<p> -->
-<!-- 						You can link between slides internally, -->
-<!-- 						<a href="#/2/3">like this</a>. -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<section id="fragments"> -->
-<!-- 						<h2>Fragmented Views</h2> -->
-<!-- 						<p>Hit the next arrow...</p> -->
-<!-- 						<p class="fragment">... to step through ...</p> -->
-<!-- 						<ol> -->
-<!-- 							<li class="fragment"><code>any type</code></li> -->
-<!-- 							<li class="fragment"><em>of view</em></li> -->
-<!-- 							<li class="fragment"><strong>fragments</strong></li> -->
-<!-- 						</ol> -->
-<!--  -->
-<!-- 						<aside class="notes"> -->
-<!-- 							This slide has fragments which are also stepped through in the notes window. -->
-<!-- 						</aside> -->
-<!-- 					</section> -->
-<!-- 					<section> -->
-<!-- 						<h2>Fragment Styles</h2> -->
-<!-- 						<p>There's a few styles of fragments, like:</p> -->
-<!-- 						<p class="fragment grow">grow</p> -->
-<!-- 						<p class="fragment shrink">shrink</p> -->
-<!-- 						<p class="fragment roll&#45;in">roll&#45;in</p> -->
-<!-- 						<p class="fragment fade&#45;out">fade&#45;out</p> -->
-<!-- 						<p class="fragment highlight&#45;red">highlight&#45;red</p> -->
-<!-- 						<p class="fragment highlight&#45;green">highlight&#45;green</p> -->
-<!-- 						<p class="fragment highlight&#45;blue">highlight&#45;blue</p> -->
-<!-- 						<p class="fragment current&#45;visible">current&#45;visible</p> -->
-<!-- 						<p class="fragment highlight&#45;current&#45;blue">highlight&#45;current&#45;blue</p> -->
-<!-- 					</section> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Spectacular image!</h2> -->
-<!-- 					<a class="image" href="http://lab.hakim.se/meny/" target="_blank"> -->
-<!-- 						<img width="320" height="299" src="http://s3.amazonaws.com/hakim&#45;static/portfolio/images/meny.png" alt="Meny"> -->
-<!-- 					</a> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Export to PDF</h2> -->
-<!-- 					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf&#45;export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p> -->
-<!-- 					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border&#45;width:1px 1px 0;margin&#45;bottom:5px" allowfullscreen> </iframe> -->
-<!-- 					<script> -->
-<!-- 						document.getElementById('slideshare').attributeName = 'allowfullscreen'; -->
-<!-- 					</script> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Take a Moment</h2> -->
-<!-- 					<p> -->
-<!-- 						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen -->
-<!-- 						during a presentation. -->
-<!-- 					</p> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h2>Stellar Links</h2> -->
-<!-- 					<ul> -->
-<!-- 						<li><a href="http://slid.es">Try the online editor</a></li> -->
-<!-- 						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li> -->
-<!-- 						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li> -->
-<!-- 					</ul> -->
-<!-- 				</section> -->
-<!--  -->
-<!-- 				<section> -->
-<!-- 					<h1>THE END</h1> -->
-<!-- 					<h3>BY Hakim El Hattab / hakim.se</h3> -->
-<!-- 				</section> -->
+        <section>
+          <section>
+            <h2>Lab 10</h2>
+            <h3>data containers</h3>
+          </section>
 
-			</div>
+          <section>
+            <h2>use a named volume</h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
+          </section>
+          <section>
+            <h2>but this relays on every host having the same file structure</h2>
+          </section>
+        </section>
 
-		</div>
+        <section>
+          <section>
+            <h2>Lab 11</h2>
+            <h3>action containers</h3>
+          </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+          <section>
+            <h2>use a named volume</h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
+          </section>
+          <section>
+            <h2>but this relays on every host having the same file structure</h2>
+          </section>
+        </section>
 
-		<script>
+        <section>
+          <section>
+            <h2>Lab 12</h2>
+            <h3>final deploy</h3>
+          </section>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+          <section>
+            <h2>use a named volume</h2>
+            <pre><code data-trim contenteditable>
+docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+            </ul>
+          </section>
+          <section>
+            <h2>but this relays on every host having the same file structure</h2>
+          </section>
+        </section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+    </div>
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+    </div>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
 
-		</script>
+    <script>
 
-	</body>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+  theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+  dependencies: [
+  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});
+
+    </script>
+
+  </body>
 </html>

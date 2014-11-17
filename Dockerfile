@@ -3,7 +3,7 @@ FROM ubuntu
 RUN \
 apt-get update && \
 apt-get install -y nginx && \
-rm -rf /var/lib/apt/lists/* && \
+rm /etc/nginx/sites-enabled/default && \
 echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
 chown -R www-data:www-data /var/lib/nginx
 
@@ -13,7 +13,6 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 RUN mkdir /var/www
 
-RUN rm /etc/nginx/sites-enabled/default
 
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/conf.d", "/var/www"]
 
