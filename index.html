@@ -502,7 +502,7 @@ docker build -t yourname/nginx:v3 the/location/of/the/docker/file
 
         <section>
           <section>
-            <h2>Lab 09</h2>
+            <h2>Lab 08</h2>
             <h3>the copy and add</h3>
           </section>
 
@@ -529,61 +529,125 @@ CMD ["nginx"]
 
 EXPOSE 80
             </code></pre>
-          </section>
-          <section>
-            <h2>what did we just do?</h2>
-            <ul>
-            </ul>
-          </section>
-          <section>
-            <h2>but this relies on every host having the same file structure</h2>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Lab 08</h2>
-            <h3>using volumes</h3>
-          </section>
-
-          <section>
-            <h2>use a named volume</h2>
             <pre><code data-trim contenteditable>
-docker run -d -P -v $(pwd):/var/www yourname/handbuiltnginx:v1 service nginx start
+# create a Dockerfile
+docker build -t yourname/nginx:v4 the/location/of/the/docker/file
+docker run -p 80:80 -d yourname/nginx
+# go checkout your web site http://localhost
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                copy a file from the host to the image
+            <pre><code data-trim contenteditable>
+COPY index.html /var/www/
+            </code></pre>
+            </li>
             </ul>
           </section>
           <section>
-            <h2>but this relies on every host having the same file structure</h2>
+            <h2>this works but what if we don't want our code in the image</h2>
           </section>
         </section>
 
         <section>
           <section>
             <h2>Lab 09</h2>
+            <h3>using volumes</h3>
+          </section>
+
+          <section>
+            <h2>use a named volume</h2>
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+
+RUN \
+apt-get update && \
+apt-get install -y nginx && \
+rm -rf /var/lib/apt/lists/* && \
+echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+chown -R www-data:www-data /var/lib/nginx
+
+COPY Sitefile /etc/nginx/sites-enabled/
+
+CMD ["nginx"]
+
+EXPOSE 80
+            </code></pre>
+            <pre><code data-trim contenteditable>
+# create a Dockerfile
+docker build -t yourname/nginx:v5 the/location/of/the/docker/file
+docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service nginx start
+# go checkout your web site http://localhost
+            </code></pre>
+            <pre><code data-trim contenteditable>
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                link the local directory in the container
+            <pre><code data-trim contenteditable>
+-v $(pwd):/var/www yourname/handbuiltnginx:v5
+            </code></pre>
+            </li>
+            </ul>
+          </section>
+          <section>
+            <h2>but this relies on every host having the same file structure</h2>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Lab 10</h2>
             <h3>using unnamed volumes</h3>
           </section>
 
           <section>
             <h2>use a unnamed volume</h2>
             <pre><code data-trim contenteditable>
-docker run -d -P -v /var/www yourname/handbuiltnginx:v1 service nginx start
-            </code></pre>
-          </section>
+FROM ubuntu:14.10
 
-          <section>
-            <h2>but thats not all that </h2>
+RUN \
+apt-get update && \
+apt-get install -y nginx && \
+rm -rf /var/lib/apt/lists/* && \
+echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+chown -R www-data:www-data /var/lib/nginx
+
+VOLUME ["/var/www"]
+COPY Sitefile /etc/nginx/sites-enabled/
+COPY css/       /var/www/css
+COPY js/        /var/www/js
+COPY lib/       /var/www/lib
+COPY plugin/    /var/www/plugin
+COPY index.html /var/www/
+
+CMD ["nginx"]
+
+EXPOSE 80
+            </code></pre>
             <pre><code data-trim contenteditable>
-docker run -d -P -v /var/www yourname/handbuiltnginx:v1 service nginx start
+# create a Dockerfile
+docker build -t yourname/nginx:v4 the/location/of/the/docker/file
+docker run -p 80:80 -d yourname/nginx
+# go checkout your web site http://localhost
             </code></pre>
           </section>
 
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                link the local directory in the co5tainer
+            <pre><code data-trim contenteditable>
+VOLUME ["/var/www"]
+            </code></pre>
+            </li>
             </ul>
           </section>
           <section>
