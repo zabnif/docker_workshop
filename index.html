@@ -438,7 +438,6 @@ docker images
               </li>
             </ul>
           </section>
-          </section>
           <section>
             <h2>cool!</h2>
             <h2 class="fragment">but how can I host my files</h2>
@@ -684,7 +683,7 @@ docker build -t yourname/dockerclass .
 
         <section>
           <section>
-            <h2>Lab 08</h2>
+            <h2>Lab 11</h2>
             <h3>copy that</h3>
           </section>
 
@@ -736,7 +735,7 @@ COPY index.html /var/www/
 
         <section>
           <section>
-            <h2>Lab 09</h2>
+            <h2>Lab 12</h2>
             <h3>using volumes</h3>
           </section>
 
@@ -786,7 +785,7 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service ngi
 
         <section>
           <section>
-            <h2>Lab 10</h2>
+            <h2>Lab 13</h2>
             <h3>using unnamed volumes</h3>
           </section>
 
@@ -840,7 +839,7 @@ VOLUME ["/var/www"]
 
         <section>
           <section>
-            <h2>Lab 09</h2>
+            <h2>Lab 14</h2>
             <h3>your first deploy</h3>
           </section>
 
@@ -878,7 +877,7 @@ docker run -p 80:80 -d  yourname/dockerclass
         </section>
         <section>
           <section>
-            <h2>Lab 10</h2>
+            <h2>Lab 15</h2>
             <h3>data containers</h3>
           </section>
 
@@ -913,7 +912,7 @@ docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
 
         <section>
           <section>
-            <h2>Lab 11</h2>
+            <h2>Lab 16</h2>
             <h3>action containers</h3>
           </section>
 
@@ -946,7 +945,7 @@ docker start
 
         <section>
           <section>
-            <h2>Lab 12</h2>
+            <h2>Lab 17</h2>
             <h3>final deploy</h3>
           </section>
 
@@ -981,6 +980,11 @@ exit
             <p> figure out how to link docker hub and git hub to build your image for you
           </section>
         </section>
+        <section>
+            <h2 class="fragment">now go and</h2>
+          <image src="http://blogs.atlassian.com/wp-content/uploads/docker-all-the-things.png">
+        </section>
+
 
     </div>
 
