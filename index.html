@@ -67,12 +67,12 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         </section>
 
         <section>
-          <h3>my name is <a href="http://duncan.fedde.us"                       >Duncan Fedde</a></h3>
-          <h3>I live in <a  href="http://www.centennialco.gov/"          >Centennial, CO</a></h3>
-          <h3>I Do <a       href="https://www.ruby-lang.org/en/"         >Ruby development/operations</a></h3>
-          <h3>I Work @<a   href="http://ensercaeng.com/"                >Enserca Integrated Solutions</a></h3>
-          <h3>I tweet @<a  href="https://twitter.com/dfedde?lang=en"    >dfedde</a></h3>
-          <h3>I chat on <a  href="irc://irc.freenode.net/sofreeus"       >freenode/#sofreeus</a></h3>
+          <h3 class="fragment">my name is <a href="http://duncan.fedde.us"                       >Duncan Fedde</a></h3>
+          <h3 class="fragment">I live in <a  href="http://www.centennialco.gov/"          >Centennial, CO</a></h3>
+          <h3 class="fragment">I Do <a       href="https://www.ruby-lang.org/en/"         >Ruby development/operations</a></h3>
+          <h3 class="fragment">I Work @<a   href="http://ensercaeng.com/"                >Enserca Integrated Solutions</a></h3>
+          <h3 class="fragment">I tweet @<a  href="https://twitter.com/dfedde?lang=en"    >dfedde</a></h3>
+          <h3 class="fragment">I chat on <a  href="irc://irc.freenode.net/sofreeus"       >freenode/#sofreeus</a></h3>
           <h3></h3>
         </section>
 
@@ -99,6 +99,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
           <small>Cue live demo</small>
           </p>
         </section>
+
         <section>
           <p>
           <h1>ahhhhhhhhhhhhhhh an Extra side kill it, kill it now</h1>
@@ -143,7 +144,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         </section>
 
         <section>
-          <h2>Docker Vocab</h2>
+          <h2 style="position: relative; bottom: 200px;">vocab</h2>
+        <section>
           <aside class="notes">
             make sure to ask about each thing
           </aside>
@@ -181,10 +183,11 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 <h2>Registry:</h2> a place the images are hosted(dockerhub)
         </section>
 
+        </section>
         <!-- Example of nested vertical slides -->
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 01</h2>
           <section>
-            <h2>Lab 01</h2>
             <h3>install docker</h3>
           </section>
 
@@ -218,8 +221,8 @@ docker pull ubuntu
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 02</h2>
           <section>
-            <h2>Lab 02</h2>
             <h3>Hello Docker</h3>
           </section>
 
@@ -267,14 +270,10 @@ docker ps -l
           </section>
         </section>
 
-          <section>
-            <h2>the difference between a container and a image</h2>
-            <image src="https://docs.docker.com/terms/images/docker-filesystems-multilayer.png">
-          </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 03</h2>
           <section>
-            <h2>Lab 03</h2>
             <h3>Adding a Web Server</h3>
           </section>
 
@@ -337,9 +336,14 @@ service nginx start
           </section>
         </section>
 
-        <section>
           <section>
-            <h2>Lab 04</h2>
+            <h2>the difference between a container and a image</h2>
+            <image src="https://docs.docker.com/terms/images/docker-filesystems-multilayer.png">
+          </section>
+
+        <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 04</h2>
+          <section>
             <h3>the one where you make a new image</h3>
           </section>
 
@@ -403,8 +407,8 @@ docker ps -q
 
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 05</h2>
           <section>
-            <h2>Lab 05</h2>
             <h3>tagging a image</h3>
           </section>
 
@@ -412,7 +416,7 @@ docker ps -q
             <h2>stop your container</h2>
             <pre><code data-trim contenteditable>
 docker images
-docker tag  name_of_image yourname/dockerlab:v1
+docker tag  name_of_image yourname/dockerlab:byhand
             </code></pre>
           </section>
           <section>
@@ -427,7 +431,7 @@ docker tag
               <li class="fragment">
                 add the v1 tag to the yourname/dockerlab image
                 <pre class="fragment"><code data-trim contenteditable>
-yourname/dockerlab:v1
+yourname/dockerlab:byhand
                 </code></pre>
               </li>
               <li class="fragment">
@@ -445,15 +449,15 @@ docker images
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 06</h2>
           <section>
-            <h2>Lab 06</h2>
             <h3>add this presentation to the container</h3>
           </section>
 
           <section>
             <h2>add these files to your container</h2>
             <pre><code data-trim contenteditable>
-docker run -i -t -p 80:80 yourname/dockerclass:v1 /bin/bash
+docker run -i -t -p 80:80 yourname/dockerclass:byhand /bin/bash
 # in the container
 apt-get install git
 git clone https://github.com/dfedde/docker_workshop.git /var/www
@@ -469,7 +473,7 @@ docker commit `docker ps -lq` yourname/dockerclass
 docker run -d -P yourname/dockerclass service nginx start
 #look at your new site in the browser
 docker images
-docker tag imagesname yourname/dockerclass:v2
+docker tag imagesname yourname/dockerclass:byhand
 docker ps -l
             </code></pre>
           </section>
@@ -490,8 +494,8 @@ yourname/dockerclass
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 07</h2>
           <section>
-            <h2>Lab 07</h2>
             <h3>Stopping and removing a container</h3>
           </section>
 
@@ -530,9 +534,10 @@ docker ps -a
             <h2 class="fragment">I want to share my awesome new image</h2>
           </section>
         </section>
+
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 08</h2>
           <section>
-            <h2>Lab 08</h2>
             <h3>docker hub</h3>
           </section>
 
@@ -567,8 +572,8 @@ docker push yourname/dockerclass
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 09</h2>
           <section>
-            <h2>Lab 09</h2>
             <h3>your first deploy</h3>
           </section>
 
@@ -606,11 +611,60 @@ docker run -p 80:80 -d  yourname/dockerclass
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 10</h2>
           <section>
-            <h2>Lab 10</h2>
-            <h3>the docker file</h3>
+            <h3>forking the repo</h3>
           </section>
 
+          <section>
+            <h2>fork and prep my repo</h2>
+            <h3><a href="https://github.com/dfedde/docker_workshop"> the repo</a></h3>
+            <ul>
+              <li> go over to my repository click the<a href="https://github.com/dfedde/docker_workshop/fork"> fork </a>button</li>
+              <li> go to your new repository select the Dockerfile file</li>
+              <li> select the trashcan button</li>
+              <li> select the commit changes button at the bottom of the page</li>
+              </ul>
+            <pre><code data-trim contenteditable>
+git clone http://the.address.of/your/repo docker_workshop
+cd docker_workshop
+touch Dockerfile
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+              make a copy of my repo under your namespace
+            </li>
+              <li class="fragment">
+              removed my docker file
+            </li>
+              <li class="fragment">
+              clone your repo
+            <pre><code data-trim contenteditable>
+git clone http://the.address.of/your/repo docker_workshop
+            </code></pre>
+            </li>
+              <li class="fragment">
+              make a new empty docker file
+            <pre><code data-trim contenteditable>
+touch Dockerfile
+            </code></pre>
+            </li>
+            </ul>
+          </section>
+          <section>
+            <h2>what do I put in this new file?</h2>
+          </section>
+        </section>
+
+        <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 11</h2>
+          <section>
+            <h3>the docker file</h3>
+          </section>
           <section>
             <h2>build your image with a docker file</h2>
             <h3><a href="https://gist.github.com/6b834c64ecfdf9b3974e">Dockerfile</a></h3>
@@ -682,8 +736,8 @@ docker build -t yourname/dockerclass .
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 12</h2>
           <section>
-            <h2>Lab 11</h2>
             <h3>copy that</h3>
           </section>
 
@@ -712,8 +766,8 @@ EXPOSE 80
             </code></pre>
             <pre><code data-trim contenteditable>
 # create a Dockerfile
-docker build -t yourname/nginx:v4 the/location/of/the/docker/file
-docker run -p 80:80 -d yourname/nginx
+docker build -t yourname/dockerclass:byfile .
+docker run -p 80:80 -d yourname/dockerclass
 # go checkout your web site http://localhost
             </code></pre>
           </section>
@@ -734,8 +788,8 @@ COPY index.html /var/www/
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 13</h2>
           <section>
-            <h2>Lab 12</h2>
             <h3>using volumes</h3>
           </section>
 
@@ -759,8 +813,8 @@ EXPOSE 80
             </code></pre>
             <pre><code data-trim contenteditable>
 # create a Dockerfile
-docker build -t yourname/nginx:v5 the/location/of/the/docker/file
-docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service nginx start
+docker build -t yourname/dockerclass:byfile .
+docker run -d -p 80:80 -v $(pwd):/var/www yourname/dockerclass:byfile service nginx start
 # go checkout your web site http://localhost
             </code></pre>
             <pre><code data-trim contenteditable>
@@ -772,7 +826,7 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service ngi
               <li class="fragment">
                 link the local directory in the container
             <pre><code data-trim contenteditable>
--v $(pwd):/var/www yourname/handbuiltnginx:v5
+-v $(pwd):/var/www yourname/dockerclass:byfile
             </code></pre>
             </li>
             </ul>
@@ -784,8 +838,8 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service ngi
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 14</h2>
           <section>
-            <h2>Lab 13</h2>
             <h3>using unnamed volumes</h3>
           </section>
 
@@ -803,11 +857,6 @@ chown -R www-data:www-data /var/lib/nginx
 
 VOLUME ["/var/www"]
 COPY Sitefile /etc/nginx/sites-enabled/
-COPY css/       /var/www/css
-COPY js/        /var/www/js
-COPY lib/       /var/www/lib
-COPY plugin/    /var/www/plugin
-COPY index.html /var/www/
 
 CMD ["nginx"]
 
@@ -815,7 +864,7 @@ EXPOSE 80
             </code></pre>
             <pre><code data-trim contenteditable>
 # create a Dockerfile
-docker build -t yourname/nginx:v4 the/location/of/the/docker/file
+docker build -t yourname/dockerclass:byfile .
 docker run -p 80:80 -d yourname/nginx
 # go checkout your web site http://localhost
             </code></pre>
@@ -833,58 +882,37 @@ VOLUME ["/var/www"]
             </ul>
           </section>
           <section>
-            <h2>but this relays on every host having the same file structure</h2>
+            <h2>but this means your code is not in the image</h2>
           </section>
         </section>
 
-        <section>
-          <section>
-            <h2>Lab 14</h2>
-            <h3>your first deploy</h3>
-          </section>
 
-          <section>
-            <h2>deploy to your server</h2>
-              <pre><code data-trim contenteditable>
-ssh sfsstudesnt@ip_Duncan_gave_you
-# password is sfsrocks
-docker login #if you made your repo private
-docker pull yourname/dockerclass
-docker run -p 80:80 -d  yourname/dockerclass
-exit
-            </code></pre>
-          </section>
-          <section>
-            <h2>what did we just do?</h2>
-            <ul>
-              <li class="fragment">
-                 pull the image back down
-                <pre class="fragment"><code data-trim contenteditable>
-docker pull yourname/dockerclass
-                </code></pre>
-              </li>
-              <li class="fragment">
-              run the container
-                <pre class="fragment"><code data-trim contenteditable>
-docker run -p 80:80 -d  yourname/dockerclass
-                </code></pre>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>it didn't work did it? lets find a way to persist the data</h2>
-          </section>
-        </section>
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 16</h2>
           <section>
-            <h2>Lab 15</h2>
             <h3>data containers</h3>
           </section>
-
           <section>
-            <h2></h2>
+            <h2>make a data container image</h2>
             <pre><code data-trim contenteditable>
-docker run -d --name www_files -v /var/www ubuntu git clone https://github.com/dfedde/docker_workshop.git /var/www
+mkdr -p images/data
+cd images/data
+            </code></pre>
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+
+RUN \
+apt-get update && \
+apt-get install -y git && \
+
+VOLUME ["/var/www"]
+
+CMD ["git", "clone", "http://the.address.of/your/repo", "/var/www"]
+
+            </code></pre>
+            <pre><code data-trim contenteditable>
+docker build -t yourname/wwwdata .
+docker run -d --name www_files -v /var/www yourname/wwwdata
 docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
             </code></pre>
           </section>
@@ -911,19 +939,33 @@ docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 17</h2>
           <section>
-            <h2>Lab 16</h2>
             <h3>action containers</h3>
           </section>
 
           <section>
-            <h2>use a unnamed volume</h2>
+            <h2>make a action container</h2>
             <pre><code data-trim contenteditable>
-docker run -d --name www_files -v /var/www ubuntu
-docker run --volumes-from www_files ubuntu git pull https://github.com/dfedde/docker_workshop.git
-$GITTER = docker ps -lq
+mkdr -p images/git-puller
+cd images/git-puller
+            </code></pre>
+            <pre><code data-trim contenteditable>
+FROM ubuntu:14.10
+
+RUN \
+apt-get update && \
+apt-get install -y git && \
+
+VOLUME ["/var/www"]
+
+ENTRYPOINT ["git", "clone" ]
+            </code></pre>
+            <pre><code data-trim contenteditable>
+docker build -t yourname/gitpuller .
+docker run --name www_files -v /var/www ubuntu
+docker run --volumes-from www_files yourname/gitpuller http://the.address.of/your/repo /var/www
 docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
-docker start $GITTER
             </code></pre>
           </section>
           <section>
@@ -931,9 +973,9 @@ docker start $GITTER
             <ul>
             </li>
               <li class="fragment">
-              start a stopped container
+              the command that will be run via the run command
             <pre><code data-trim contenteditable>
-docker start
+ENTRYPOINT ["git", "clone" ]
             </code></pre>
             </li>
             </ul>
@@ -944,8 +986,8 @@ docker start
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">Lab 18</h2>
           <section>
-            <h2>Lab 17</h2>
             <h3>final deploy</h3>
           </section>
 
@@ -970,8 +1012,8 @@ exit
         </section>
 
         <section>
+          <h2 style="position: relative; bottom: 430px;">extra credit</h2>
           <section>
-            <h2>extra credit</h2>
             <h3>automated builds</h3>
           </section>
 
