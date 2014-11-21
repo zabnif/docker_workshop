@@ -64,7 +64,13 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         </section>
 
         <section>
-          <h2>My info</h2>
+          <h3>my name is</h3><a href="duncan.fedde.us"                       >Duncan Fedde</a>
+          <h3>I live in</h3><a  href="http://www.centennialco.gov/"          >Centennial, CO</a>
+          <h3>I Do</h3><a       href="https://www.ruby-lang.org/en/"         >Ruby development/operations</a>
+          <h3>I Work @</h3><a   href="http://ensercaeng.com/"                >Enserca</a>
+          <h3>I tweet @</h3><a  href="https://twitter.com/dfedde?lang=en"    >dfedde</a>
+          <h3>I chat on</h3><a  href="irc://irc.freenode.net/sofreeus"       >freenode/#sofreeus</a>
+          <h3></h3>
         </section>
 
         <section>
@@ -78,6 +84,9 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
         <section>
           <h2>We will be setting up this</h2>
+        </section>
+
+        <section>
           <p>
           <small>Cue live demo</small>
           </p>
@@ -91,9 +100,6 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 30 we'll come back and discus the lab
 40 GOTO 10
           </code></pre>
-        </section>
-        <section>
-          <h2>But First... What is docker?</h2>
         </section>
 
         <section>
@@ -125,18 +131,43 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
         <section>
           <h2>Docker Vocab</h2>
-          <ul>
-            <li>Docker Server: The daemon that manages containers and images</li>
-            <li>Docker CLI: The docker command</li>
-            <li>Docker Hub: The docker image hosting service</li>
-            <li>Image: A read only file system</li>
-            <li>Base Image: An image without a parent</li>
-            <li>container: An instance of a Image</li>
-          </ul>
           <aside class="notes">
             make sure to ask about each thing
           </aside>
         </section>
+
+        <section>
+          <h2>Docker Server:</h2> The daemon that manages containers and images
+        </section>
+
+        <section>
+          <h2>Docker CLI:</h2> The docker command
+        </section>
+
+        <section>
+            <h2>Docker Hub:</h2> The docker image hosting service
+        </section>
+
+        <section>
+            <h2>Image:</h2> A read only file system
+        </section>
+
+        <section>
+              <h2>Base Image:</h2> An image without a parent
+        </section>
+
+        <section>
+                <h2>Container:</h2> An instance of a Image
+        </section>
+
+        <section>
+                <h2>Repository:</h2> a set of images
+        </section>
+
+        <section>
+                <h2>Registry:</h2> a place the images are hosted(dockerhub)
+        </section>
+
         <!-- Example of nested vertical slides -->
         <section>
           <section>
@@ -146,16 +177,18 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
           <section>
             <h2>Ubuntu 14.04/Debian</h2>
+            <p>Take a look <a href ="http://docs.docker.com/installation/ubuntulinux/">here</a>
+            Or if you are lazy this is it summarized</p>
             <pre><code data-trim contenteditable>
-sudo app-get install docker.io
-sudo usermod -a -G docker ${whoami}
+curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+sudo usermod -a -G docker $USER
 # you may need to re-login
 docker pull ubuntu
             </code></pre>
             <h2>Arch</h2>
             <pre><code data-trim contenteditable>
 sudo pacman -S install docker
-sudo usermod -a -G docker ${whoami}
+sudo usermod -a -G docker $USER
 # you may need to re-login
 docker pull ubuntu
             </code></pre>
@@ -215,10 +248,16 @@ docker ps -l
             </ul>
           </section>
 
+
           <section>
             <h2>great but can we do something useful?</h2>
           </section>
         </section>
+
+          <section>
+            <h2>the difference between a container and a image</h2>
+            <image src="https://docs.docker.com/terms/images/docker-filesystems-multilayer.png">
+          </section>
 
         <section>
           <section>
@@ -284,6 +323,46 @@ service nginx start
             <h2>well that works but do I need to to that every time?</h2>
           </section>
         </section>
+        <section>
+          <section>
+            <h2>Lab 03.5</h2>
+            <h3>listing containers</h3>
+          </section>
+
+          <section>
+            <h2>containers</h2>
+            <pre><code data-trim contenteditable>
+docker ps -l
+docker ps -q
+docker ps -a
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                the last container
+                <pre class="fragment"><code data-trim contenteditable>
+-l
+                </code></pre>
+
+              </li>
+              <li class="fragment">
+                just the id of the container
+                <pre class="fragment"><code data-trim contenteditable>
+-q
+                </code></pre>
+
+              </li>
+              <li class="fragment">
+                all containers
+                <pre class="fragment"><code data-trim contenteditable>
+-a
+                </code></pre>
+
+              </li>
+            </ul>
+          </section>
 
         <section>
           <section>
@@ -299,9 +378,8 @@ echo "daemon off;" >> /etc/nginx/nginx.conf
 exit
 # out of the docker
 docker ps -l
-# get the name from of the container
-docker commit #{the_name_of_the_container} yourname/handbuiltnginx:v1
-docker run -d -P yourname/handbuiltnginx:v1 service nginx start
+docker commit `docker ps -lq` yourname/dockerclass
+docker run -d -P yourname/dockerclass service nginx start
 docker ps -l
             </code></pre>
           </section>
@@ -311,7 +389,7 @@ docker ps -l
               <li class="fragment">
                 name of the image
                 <pre class="fragment"><code data-trim contenteditable>
-yourname/handbuiltnginx:v1
+yourname/dockerclass
                 </code></pre>
 
               </li>
@@ -343,6 +421,7 @@ service nginx start
             <h2 class="fragment">but how do I host my files?</h2>
           </section>
         </section>
+
         <section>
           <section>
             <h2>Lab 04.5</h2>
@@ -352,17 +431,75 @@ service nginx start
           <section>
             <h2>stop your container</h2>
             <pre><code data-trim contenteditable>
-docker ps -l
-#get the name
-docker stop $the_name_found
-            </code></pre>
-            <pre><code data-trim contenteditable>
 docker stop `docker ps -lq`
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                stops 1 or more given containers
+                <pre class="fragment"><code data-trim contenteditable>
+docker stop
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Lab 05.5</h2>
+            <h3>listing images</h3>
+          </section>
+
+          <section>
+            <h2>listing images</h2>
+            <pre><code data-trim contenteditable>
+docker images
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                showes you the images
+                <pre class="fragment"><code data-trim contenteditable>
+docker images
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Lab 04.5</h2>
+            <h3>tagging a image</h3>
+          </section>
+
+          <section>
+            <h2>stop your container</h2>
+            <pre><code data-trim contenteditable>
+docker images
+docker tag yourname/dockerlab:v1
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                add a tag to a docker image
+                <pre class="fragment"><code data-trim contenteditable>
+docker tag
+                </code></pre>
+              </li>
+              <li class="fragment">
+                add the v1 tag to the yourname/dockerlab image
+                <pre class="fragment"><code data-trim contenteditable>
+yourname/dockerlab:v1
+                </code></pre>
+              </li>
             </ul>
           </section>
         </section>
@@ -376,7 +513,7 @@ docker stop `docker ps -lq`
           <section>
             <h2>add these files to your container</h2>
             <pre><code data-trim contenteditable>
-docker run -i -t -p 80:80 yourname/handbuiltnginx:v1 /bin/bash
+docker run -i -t -p 80:80 yourname/dockerclass:v1 /bin/bash
 # in the container
 mkdir /var/www && cd /var/www
 git clone https://github.com/dfedde/docker_workshop.git
@@ -385,15 +522,23 @@ nginx TODO fesh this out a bit more
 exit
 docker ps -l
 # get the name from of the container
-docker commit #{the_name_of_the_container} yourname/handbuiltnginx:v2
-docker run -d -P yourname/handbuiltnginx:v2 service nginx start
+docker commit `docker ps -lq` yourname/dockerclass
+docker run -d -P yourname/dockerclass service nginx start
 #look at your new site in the browser
+docker images
+docker tag imagesname yourname/dockerclass:v2
 docker ps -l
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                 we used and committed the dockerclass repository
+                <pre class="fragment"><code data-trim contenteditable>
+yourname/dockerclass
+                </code></pre>
+              </li>
             </ul>
           </section>
           <section>
@@ -409,14 +554,66 @@ docker ps -l
 
           <section>
             <h2>push your image to docker hub</h2>
-            <p>create a docker hub account</p>
-            <pre><code data-trim contenteditable>
-docker push -d yourname/handbuiltnginx
+            <p>create <a href ="https://hub.docker.com/account/signup/docker"> hub account</a></p>
+              <pre><code data-trim contenteditable>
+docker login
+docker push yourname/dockerclass
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                 login to the registry (default docker hub)
+                <pre class="fragment"><code data-trim contenteditable>
+docker login
+                </code></pre>
+              </li>
+              <li class="fragment">
+                 push the image to the registry
+                <pre class="fragment"><code data-trim contenteditable>
+docker push yourname/dockerclass
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>cool but there is a better way</h2>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Lab 06</h2>
+            <h3>your first deploy</h3>
+          </section>
+
+          <section>
+            <h2>deploy to your server</h2>
+            <p>create <a href ="https://hub.docker.com/account/signup/docker"> hub account</a></p>
+              <pre><code data-trim contenteditable>
+ssh sfsstudesnt@ip_Duncan_gave_you
+# password is sfsrocks
+docker pull yourname/dockerclass
+docker run -p 80:80 -d  yourname/dockerclass
+exit
+            </code></pre>
+          </section>
+          <section>
+            <h2>what did we just do?</h2>
+            <ul>
+              <li class="fragment">
+                 pull the image back down
+                <pre class="fragment"><code data-trim contenteditable>
+docker pull yourname/dockerclass
+                </code></pre>
+              </li>
+              <li class="fragment">
+              run the container
+                <pre class="fragment"><code data-trim contenteditable>
+docker run -p 80:80 -d  yourname/dockerclass
+                </code></pre>
+              </li>
             </ul>
           </section>
           <section>
@@ -449,8 +646,8 @@ EXPOSE 80
             </code></pre>
             <pre><code data-trim contenteditable>
 # create a Dockerfile
-docker build -t yourname/nginx:v3 the/location/of/the/docker/file
-docker run -p 80:80 -d yourname/nginx
+docker build -t yourname/dockerclass .
+docker run -p 80:80 -d yourname/dockerclass
 # go checkout your web site http://localhost
             </code></pre>
           </section>
@@ -476,7 +673,7 @@ chown -R www-data:www-data /var/lib/nginx
             </code></pre>
             </li>
               <li class="fragment">
-                run the nginx comand when you start the file
+                run the nginx comand when you run the image
             <pre><code data-trim contenteditable>
 CMD ["nginx"]
             </code></pre>
@@ -488,9 +685,9 @@ EXPOSE 80
             </code></pre>
             </li>
               <li class="fragment">
-                comand to build the image from the docker file
+                build the image from the docker file
             <pre><code data-trim contenteditable>
-docker build -t yourname/nginx:v3 the/location/of/the/docker/file
+docker build -t yourname/dockerclass .
             </code></pre>
             </li>
             </ul>
@@ -595,6 +792,7 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/handbuiltnginx:v5 service ngi
             </code></pre>
             </li>
             </ul>
+            volumes don't get deleted when you remove a container
           </section>
           <section>
             <h2>but this relies on every host having the same file structure</h2>
@@ -643,7 +841,7 @@ docker run -p 80:80 -d yourname/nginx
             <h2>what did we just do?</h2>
             <ul>
               <li class="fragment">
-                link the local directory in the co5tainer
+                link the directory on the local file system in to the container
             <pre><code data-trim contenteditable>
 VOLUME ["/var/www"]
             </code></pre>
@@ -662,14 +860,27 @@ VOLUME ["/var/www"]
           </section>
 
           <section>
-            <h2>use a named volume</h2>
+            <h2></h2>
             <pre><code data-trim contenteditable>
-docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
+docker run -d --name www_files -v /var/www ubuntu git clone TODO
+docker run --volumes-from www_files -p 80:80 -d yourname/nginx
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+              <li class="fragment">
+                provide a explicit name for a container
+            <pre><code data-trim contenteditable>
+--name
+            </code></pre>
+            </li>
+              <li class="fragment">
+                share a volume between containers(even not running containers)
+            <pre><code data-trim contenteditable>
+--volumes-from
+            </code></pre>
+            </li>
             </ul>
           </section>
           <section>
@@ -686,12 +897,23 @@ docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
           <section>
             <h2>use a named volume</h2>
             <pre><code data-trim contenteditable>
-docker run -d -P -v .:/var/www yourname/handbuiltnginx:v1 service nginx start
+docker run -d --name www_files -v /var/www ubuntu git clone TODO
+docker run --volumes-from www_files ubuntu git pull TODO
+$GITTER = docker ps -lq
+docker run --volumes-from www_files -p 80:80 -d yourname/nginx
+docker start $GITTER
             </code></pre>
           </section>
           <section>
             <h2>what did we just do?</h2>
             <ul>
+            </li>
+              <li class="fragment">
+              start a stopped container
+            <pre><code data-trim contenteditable>
+docker start
+            </code></pre>
+            </li>
             </ul>
           </section>
           <section>
