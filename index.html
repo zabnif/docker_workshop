@@ -1016,16 +1016,15 @@ ENTRYPOINT ["git", "clone" ]
             <h2>deploy code to the server again</h2>
             <pre><code data-trim contenteditable>
 docker push yourname/dockerclass
-docker push yourname/gitpusher
+docker push yourname/gitpuller
 
-ssh sfsstudesnt@ip_Duncan_gave_you
-# password is sfsrocks
+ssh sfsstudent@ip_Duncan_gave_you
+# password is still sfsrocks
 
 docker login #if you made your repo private
 docker run -d --name www_files -v /var/www ubuntu
-docker run --volumes-from www_files ubuntu git pull https://github.com/dfedde/docker_workshop.git
-docker pull yourname/dockerclass
-docker run -p 80:80 -d  yourname/dockerclass
+docker run --volumes-from www_files yourname/gitpuller http://the.address.of/your/repo /var/www
+docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
 # test if everything is working
 
 exit
