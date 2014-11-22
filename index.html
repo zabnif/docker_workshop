@@ -1097,7 +1097,7 @@ function completeLab(lab) {
 
   if (person != null) {
     $.ajax({
-        url: "http://localhost:4567/done/"+lab+"/"+person,
+        url: "http://docker_workshop.fedde.us:4567/done/"+lab+"/"+person,
         success: function(){
           alert("thank you");
         }
