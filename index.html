@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/default.css" id="theme">
-
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -30,6 +29,17 @@ if( window.location.search.match( /print-pdf/gi ) ) {
   document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
     </script>
+    <style>
+.done-button{
+  position: relative; 
+  bottom: 510px; 
+  left: 500px
+}
+.done-button:hover{
+    cursor: hand; 
+    cursor: pointer;
+}
+</style>
 
     <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
@@ -73,7 +83,6 @@ if( window.location.search.match( /print-pdf/gi ) ) {
           <h3 class="fragment">I Work @<a   href="http://ensercaeng.com/"                >Enserca Integrated Solutions</a></h3>
           <h3 class="fragment">I tweet @<a  href="https://twitter.com/dfedde?lang=en"    >dfedde</a></h3>
           <h3 class="fragment">I chat on <a  href="irc://irc.freenode.net/sofreeus"       >freenode/#sofreeus</a></h3>
-          <h3></h3>
         </section>
 
         <section>
@@ -186,7 +195,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         </section>
         <!-- Example of nested vertical slides -->
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 01</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>install docker</h3>
           </section>
@@ -221,7 +230,7 @@ docker pull ubuntu
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 02</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 2</h2> <a class="done-button" onclick="completeLab(2)">I'm Done</a>
           <section>
             <h3>Hello Docker</h3>
           </section>
@@ -272,7 +281,7 @@ docker ps -l
 
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 03</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 3</h2> <a class="done-button" onclick="completeLab(3)">I'm Done</a>
           <section>
             <h3>Adding a Web Server</h3>
           </section>
@@ -342,7 +351,7 @@ service nginx start
           </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 04</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 4</h2> <a class="done-button" onclick="completeLab(4)">I'm Done</a>
           <section>
             <h3>the one where you make a new image</h3>
           </section>
@@ -407,7 +416,7 @@ docker ps -q
 
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 05</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 5</h2> <a class="done-button" onclick="completeLab(5)">I'm Done</a>
           <section>
             <h3>tagging a image</h3>
           </section>
@@ -449,7 +458,7 @@ docker images
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 06</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 6</h2> <a class="done-button" onclick="completeLab(6)">I'm Done</a>
           <section>
             <h3>add this presentation to the container</h3>
           </section>
@@ -494,7 +503,7 @@ yourname/dockerclass
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 07</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 7</h2> <a class="done-button" onclick="completeLab(7)">I'm Done</a>
           <section>
             <h3>Stopping and removing a container</h3>
           </section>
@@ -536,7 +545,7 @@ docker ps -a
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 08</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 8</h2> <a class="done-button" onclick="completeLab(8)">I'm Done</a>
           <section>
             <h3>docker hub</h3>
           </section>
@@ -572,7 +581,7 @@ docker push yourname/dockerclass
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 09</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 9</h2> <a class="done-button" onclick="completeLab(9)">I'm Done</a>
           <section>
             <h3>your first deploy</h3>
           </section>
@@ -611,7 +620,7 @@ docker run -p 80:80 -d  yourname/dockerclass
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 10</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>forking the repo</h3>
           </section>
@@ -661,7 +670,7 @@ touch Dockerfile
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 11</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>the docker file</h3>
           </section>
@@ -736,7 +745,7 @@ docker build -t yourname/dockerclass .
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 12</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>copy that</h3>
           </section>
@@ -788,7 +797,7 @@ COPY index.html /var/www/
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 13</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>using volumes</h3>
           </section>
@@ -838,7 +847,7 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/dockerclass:byfile service ng
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 14</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>using unnamed volumes</h3>
           </section>
@@ -888,7 +897,7 @@ VOLUME ["/var/www"]
 
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 16</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>data containers</h3>
           </section>
@@ -939,7 +948,7 @@ docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 17</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>action containers</h3>
           </section>
@@ -986,7 +995,7 @@ ENTRYPOINT ["git", "clone" ]
         </section>
 
         <section>
-          <h2 style="position: relative; bottom: 430px;">Lab 18</h2>
+          <h2 style="position: relative; bottom: 430px;">Lab 1</h2> <a class="done-button" onclick="completeLab(1)">I'm Done</a>
           <section>
             <h3>final deploy</h3>
           </section>
@@ -1059,10 +1068,25 @@ Reveal.initialize({
   { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
     { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'http://code.jquery.com/jquery-2.1.1.min.js', async: true, condition: function() { return !!document.body.classList; } }
   ]
 });
 
+    </script>
+    <script>
+function completeLab(lab) {
+  var person = prompt("Please enter your name", "Harry Potter");
+
+  if (person != null) {
+    $.ajax({
+        url: "http://localhost:4567/done/"+lab+"/"+person,
+        success: function(){
+          alert("thank you");
+        }
+    });
+  }
+}
     </script>
 
   </body>
