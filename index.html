@@ -425,7 +425,7 @@ docker ps -q
             <h2>stop your container</h2>
             <pre><code data-trim contenteditable>
 docker images
-docker tag  name_of_image yourname/dockerlab:byhand
+docker tag  name_of_image yourname/dockerclass:byhand
             </code></pre>
           </section>
           <section>
@@ -438,9 +438,9 @@ docker tag
                 </code></pre>
               </li>
               <li class="fragment">
-                add the v1 tag to the yourname/dockerlab image
+                add the byhand tag to the yourname/dockerclass image
                 <pre class="fragment"><code data-trim contenteditable>
-yourname/dockerlab:byhand
+yourname/dockerclass:byhand
                 </code></pre>
               </li>
               <li class="fragment">
@@ -589,11 +589,12 @@ docker push yourname/dockerclass
           <section>
             <h2>deploy to your server</h2>
               <pre><code data-trim contenteditable>
-ssh sfsstudesnt@ip_Duncan_gave_you
+ssh sfsstudent@ip_Duncan_gave_you
 # password is sfsrocks
 docker login #if you made your repo private
 docker pull yourname/dockerclass
-docker run -p 80:80 -d  yourname/dockerclass
+docker run -p 80:80 -d  yourname/dockerclass nginx
+# test your new server
 exit
             </code></pre>
           </section>
@@ -626,13 +627,14 @@ docker run -p 80:80 -d  yourname/dockerclass
           </section>
 
           <section>
-            <h2>fork and prep my repo</h2>
+            <h2>fork and prep my github repo</h2>
             <h3><a href="https://github.com/dfedde/docker_workshop"> the repo</a></h3>
             <ul>
               <li> go over to my repository click the<a href="https://github.com/dfedde/docker_workshop/fork"> fork </a>button</li>
               <li> go to your new repository select the Dockerfile file</li>
               <li> select the trashcan button</li>
               <li> select the commit changes button at the bottom of the page</li>
+              <li> now run these commands</li>
               </ul>
             <pre><code data-trim contenteditable>
 git clone http://the.address.of/your/repo docker_workshop
@@ -762,6 +764,8 @@ rm -rf /var/lib/apt/lists/* && \
 echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
 chown -R www-data:www-data /var/lib/nginx
 
+RUN rm /etc/nginx/sites-enabled/default
+
 COPY Sitefile /etc/nginx/sites-enabled/
 COPY css/       /var/www/css
 COPY js/        /var/www/js
@@ -814,6 +818,8 @@ rm -rf /var/lib/apt/lists/* && \
 echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
 chown -R www-data:www-data /var/lib/nginx
 
+RUN rm /etc/nginx/sites-enabled/default
+
 COPY Sitefile /etc/nginx/sites-enabled/
 
 CMD ["nginx"]
@@ -823,10 +829,8 @@ EXPOSE 80
             <pre><code data-trim contenteditable>
 # create a Dockerfile
 docker build -t yourname/dockerclass:byfile .
-docker run -d -p 80:80 -v $(pwd):/var/www yourname/dockerclass:byfile service nginx start
+docker run -d -p 80:80 -v $(pwd):/var/www yourname/dockerclass:byfile
 # go checkout your web site http://localhost
-            </code></pre>
-            <pre><code data-trim contenteditable>
             </code></pre>
           </section>
           <section>
@@ -838,8 +842,10 @@ docker run -d -p 80:80 -v $(pwd):/var/www yourname/dockerclass:byfile service ng
 -v $(pwd):/var/www yourname/dockerclass:byfile
             </code></pre>
             </li>
-            </ul>
+            <li class="fragment">
             volumes don't get deleted when you remove a container
+            </li>
+            </ul>
           </section>
           <section>
             <h2>but this relies on every host having the same file structure</h2>
@@ -864,7 +870,10 @@ rm -rf /var/lib/apt/lists/* && \
 echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
 chown -R www-data:www-data /var/lib/nginx
 
+RUN rm /etc/nginx/sites-enabled/default
+
 VOLUME ["/var/www"]
+
 COPY Sitefile /etc/nginx/sites-enabled/
 
 CMD ["nginx"]
@@ -904,15 +913,16 @@ VOLUME ["/var/www"]
           <section>
             <h2>make a data container image</h2>
             <pre><code data-trim contenteditable>
-mkdr -p images/data
+mkdir -p images/data
 cd images/data
+touch Dockerfile
             </code></pre>
             <pre><code data-trim contenteditable>
 FROM ubuntu:14.10
 
 RUN \
 apt-get update && \
-apt-get install -y git && \
+apt-get install -y git
 
 VOLUME ["/var/www"]
 
@@ -921,7 +931,7 @@ CMD ["git", "clone", "http://the.address.of/your/repo", "/var/www"]
             </code></pre>
             <pre><code data-trim contenteditable>
 docker build -t yourname/wwwdata .
-docker run -d --name www_files -v /var/www yourname/wwwdata
+docker run --name www_files yourname/wwwdata
 docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
             </code></pre>
           </section>
@@ -943,7 +953,7 @@ docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
             </ul>
           </section>
           <section>
-            <h2>but this relays on every host having the same file structure</h2>
+            <h2>makes the data container to smart</h2>
           </section>
         </section>
 
@@ -954,17 +964,19 @@ docker run --volumes-from www_files -p 80:80 -d yourname/dockerclass
           </section>
 
           <section>
-            <h2>make a action container</h2>
+            <h2>make an action container</h2>
             <pre><code data-trim contenteditable>
+cd ../..
 mkdr -p images/git-puller
 cd images/git-puller
+touch Dockerfile
             </code></pre>
             <pre><code data-trim contenteditable>
 FROM ubuntu:14.10
 
 RUN \
 apt-get update && \
-apt-get install -y git && \
+apt-get install -y git
 
 VOLUME ["/var/www"]
 
@@ -990,7 +1002,7 @@ ENTRYPOINT ["git", "clone" ]
             </ul>
           </section>
           <section>
-            <h2>but this relays on every host having the same file structure</h2>
+            <h2></h2>
           </section>
         </section>
 
@@ -1001,15 +1013,21 @@ ENTRYPOINT ["git", "clone" ]
           </section>
 
           <section>
-            <h2>depoy code to the server again</h2>
+            <h2>deploy code to the server again</h2>
             <pre><code data-trim contenteditable>
+docker push yourname/dockerclass
+docker push yourname/gitpusher
+
 ssh sfsstudesnt@ip_Duncan_gave_you
 # password is sfsrocks
+
 docker login #if you made your repo private
 docker run -d --name www_files -v /var/www ubuntu
 docker run --volumes-from www_files ubuntu git pull https://github.com/dfedde/docker_workshop.git
 docker pull yourname/dockerclass
 docker run -p 80:80 -d  yourname/dockerclass
+# test if everything is working
+
 exit
             </code></pre>
           </section>
